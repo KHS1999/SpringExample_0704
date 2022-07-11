@@ -23,4 +23,48 @@
 			`id` = #{id}  	
   	
   	</select>
+  	<insert id="insertReview" parameterType="map">
+  		INSERT INTO `new_review`
+  		(
+			,`storeId`
+			,`menu`
+			,`userName`
+			,`point`
+			,`review`
+			,`createdAt`
+			,`updatedAt`  		  		
+  		)VALUES
+  		(
+  			#{storeId}
+  			, #{menu}
+  			, #{userName}
+  			, #{point}
+  			, #{review}
+  			, now()
+  			, now()
+  		
+  		
+  		)  		 		
+  	</insert>
+  	
+  	<insert id ="insertReviewByObiect" parameterType="com.marondal.ex.mybatis.model.Review">
+  	
+  		  		INSERT INTO `new_review`
+  		(
+			`storeId`
+			,`userName`
+			,`point`
+			,`review`
+			,`createdAt`
+			,`updatedAt`  		  		
+  		)VALUES
+  		(
+  			 #{storeId}
+  			 , #{userName}
+  			 , #{point}
+  			 , #{review}
+  			 , now()
+  			 , now()
+  		)
+  	</insert>
   </mapper>
