@@ -47,7 +47,7 @@
   		)  		 		
   	</insert>
   	
-  	<insert id ="insertReviewByObiect" parameterType="com.marondal.ex.mybatis.model.Review">
+  	<insert id ="insertReviewByObiect" parameterType="com.khs.ex.mybatis.model.Review">
   	
   		  		INSERT INTO `new_review`
   		(
