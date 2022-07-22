@@ -19,9 +19,9 @@
 	<!-- </form> -->
 	
 	<script>
-		${document}.ready(function(){
+		$(document).ready(function(){
 			
-			$("#addBtn").on("click",function()){
+			$("#addBtn").on("click",function(){
 				
 				let name = $("#nameInput").val();
 				let birthday = $("#birthInput").val();
@@ -33,7 +33,7 @@
 					return false;
 				}
 				
-				if(birth == ""){
+				if(birthday == ""){
 					alert("생년월일을 입력하세요");
 					return false;
 				}
@@ -54,20 +54,35 @@
 					url:"/ajax/user/insert",
 					data:{"name":name, "birthday":birthday, "introduce":introduce, "email":email},
 					// 리스폰스를 위한 옵션
-					successs:function(data){
+					success:function(data){
 						// alert(data);	
-						location.href = "/ajax/user/list";
+						// {"result" : "success"}
+						// {"result":" fail"}
+						
+						// 만약에 성공햇으면 리스트로 이동
+						if(data.result == "success"){
+							location.href = "/ajax/user/list";
+						}else{
+						// 실패 했으면 얼럿띄우기
+							alert(data.result);
+							
+							alert("삽입실패!!");
+						}
+						
+
 					},
+					
 					error:function() {
 						
-						alert("에러발생");
-					}
+					 	alert("에러발생");	
 					
 					
+				}
+				
+				
 				});
-				
-				
 			});
+		});
 			
 			
 			
@@ -98,7 +113,7 @@
 					return false;
 				}
 			})*/
-		
+			
 	</script>
 </body>
 </html>
