@@ -25,4 +25,19 @@ public class NewUserBO {
 		
 	}
 	
+	public boolean isDupulicateName(String name) {
+//		int count = newUserDAO.selctCountByName(name);
+		
+//		if(count == 0 ) { // 중복되지 않음
+//			return false;
+//		}else { // 중복됨
+//			return true;
+//		}
+		
+//		return count != 0;
+		
+		return newUserDAO.selctCountByName(name) != 0;
+		
+	}
+	
 }
